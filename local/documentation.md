@@ -16,3 +16,8 @@ Clone repo to Apache 2 directory:
 Update repo from source:
 - cd /var/www/flook.de/public_html
 - sudo git pull origin main
+
+Start MySQL:
+- sudo mysql -u root -p
+To exit:
+- quit() 
