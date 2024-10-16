@@ -1,0 +1,16 @@
+:root{
+    --accentblue: #212178ff;
+}
+html{
+    font-family: "Josefin Sans", sans-serif;
+}
+
+.josefin-sans-style {
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
+.logo-bar{
+    background-color: var(--accentblue);
+}
