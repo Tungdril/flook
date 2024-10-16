@@ -5,6 +5,7 @@ __pycache__/
 
 # Local files
 playground/
+databases/
 
 # C extensions
 *.so
