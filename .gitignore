@@ -4,7 +4,7 @@ __pycache__/
 *$py.class
 
 # Local files
-#local/
+playground/
 
 # C extensions
 *.so

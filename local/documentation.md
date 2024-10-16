@@ -1,3 +1,4 @@
+# Pi IP: 192.168.178.69
 # Pi networking commands
 Get public IP:
 - curl ipinfo.io/ip
