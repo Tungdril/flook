@@ -1,14 +1,16 @@
-from pyscript import display
+from pyscript import display, when
 from datetime import datetime
 import pyodide_js
 import asyncio
 
 async def main():
     await pyodide_js.loadPackage("micropip")
+    global micropip
     import micropip
     await micropip.install("sqlite3")
+    global sqlite3
     import sqlite3
-
+   
     now = datetime.now()
     display(now.strftime("%m/%d/%Y, %H:%M:%S"))
 
@@ -19,6 +21,23 @@ async def main():
     cursor = connection.cursor()
     cursor.execute("CREATE TABLE users (id INTEGER PRIMARY KEY, name TEXT)")
     cursor.execute("INSERT INTO users (name) VALUES ('Alice')")
+    connection.commit()
+
+    cursor.execute("SELECT * FROM users")
+    rows = cursor.fetchall()
+    for row in rows:
+        print(row)
+
+    connection.close()
+
+@when("click", "#login")
+def database(event):
+    print(type(event))
+
+    connection = sqlite3.connect(":memory:")
+    cursor = connection.cursor()
+    cursor.execute("CREATE TABLE users (id INTEGER PRIMARY KEY, name TEXT)")
+    cursor.execute("INSERT INTO users (name) VALUES ('Bob')")
     connection.commit()
 
     cursor.execute("SELECT * FROM users")
