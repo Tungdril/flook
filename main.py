@@ -1,19 +1,7 @@
 from pyscript import display, when
-from datetime import datetime
-import pyodide_js
-import asyncio
+import sqlite3
 
-async def main():
-    await pyodide_js.loadPackage("micropip")
-    global micropip
-    import micropip
-    await micropip.install("sqlite3")
-    global sqlite3
-    import sqlite3
-   
-    now = datetime.now()
-    display(now.strftime("%m/%d/%Y, %H:%M:%S"))
-
+def main():
     print("Hello World!")
     #connection = sqlite3.connect("/databases/users.db")
 
@@ -47,4 +35,4 @@ def database(event):
 
     connection.close()
 
-asyncio.ensure_future(main())
+main()
